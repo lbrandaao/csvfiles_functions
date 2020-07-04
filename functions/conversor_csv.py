@@ -10,5 +10,5 @@ def conversor_csv(arquivo, novo_arquivo, modo):
         for line in file_read:
             nfkd = unicodedata.normalize('NFKD', line) #Normalização da linha na forma NKFD.
             semacento = u"".join([c for c in nfkd if not unicodedata.combining(c)])
-            new_line = semacento.replace(',','.') #.replace(';', ',') caso não use o parâmetro (sep=','). 
+            new_line = semacento.replace(',','.') #.replace(';', ',') caso não use o parâmetro (sep=',') em read_csv(). 
             file_write.write(new_line)
