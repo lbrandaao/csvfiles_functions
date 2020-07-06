@@ -1,5 +1,4 @@
 import unicodedata
-import pandas as pd
 
 def conversor_csv(arquivo, novo_arquivo, sepor, sepnov, caracesp = False):
     file_read = open(arquivo, 'r')
