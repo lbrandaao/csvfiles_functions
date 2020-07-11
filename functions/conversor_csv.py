@@ -1,21 +1,21 @@
 import unicodedata
 
-def conversor_csv(arquivo, novo_arquivo, sepor, sepnov, caracesp = False):
+def conversor_csv(file, new_file, orsep, newsep, decsep = '.', spechar = True, encodingor = 'utf-8', encodingnov = 'utf-8'):
     file_read = open(arquivo, 'r')
     file_write = open(novo_arquivo, 'w')
 
     if caracesp == False and sepor == ',':
         for line in file_read:
             line = line.replace(sepor, sepnov)
-            nfkd = unicodedata.normalize('NFKD', line)
-            equi_line = u"".join([c for c in nfkd if not unicodedata.combining(c)])
+            nfd = unicodedata.normalize('NFD', line)
+            equi_line = u"".join([c for c in nfd if not unicodedata.combining(c)])
             file_write.write(equi_line)
     
     elif caracesp == False:
         for line in file_read:
             line = line.replace(',', '.').replace(sepor, sepnov)
-            nfkd = unicodedata.normalize('NFKD', line)
-            equi_line = u"".join([c for c in nfkd if not unicodedata.combining(c)])
+            nfd = unicodedata.normalize('NFD', line)
+            equi_line = u"".join([c for c in nfd if not unicodedata.combining(c)])
             file_write.write(equi_line)
     
     elif sepor == ',':
