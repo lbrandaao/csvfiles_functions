@@ -5,8 +5,8 @@ def conversor_csv(file, new_file, orsep, newsep, ordecsep = '.', spechar = True,
     if orsep == ordecsep:
         return print('Impossible conversion. Columns and decimals separators are equals.')
     
-    file_read = open(arquivo, 'r', encoding = orencoding)
-    file_write = open(novo_arquivo, 'w', encoding = newencoding)
+    file_read = open(file, 'r', encoding = orencoding)
+    file_write = open(new_file, 'w', encoding = newencoding)
 
     if spechar == True and ordecsep == '.':
         reading = file_read.read()
