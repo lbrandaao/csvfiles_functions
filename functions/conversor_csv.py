@@ -38,4 +38,4 @@ def conversor_csv(file, new_file, orsep, newsep, ordecsep = '.', spechar = True,
 
 #Em alguns casos, dados numéricos decimais podem possuir ',' para indicar os algarismos decimais. Caso o separador das colunas também seja ',' é impossível diferir o indicador de casas decimais e o separador de coluna (sempre que o indicador e o separador forem a mesma string isso ocorre). Portanto, caso o separador original não seja ',', a função sempre irá substituir o indicador de casas decimais ',' por '.'.
 
-#Necessário aprimorar para o caso de dados separados por strings diferentes de ',' ou ';' e com números decimais com ','. Também para o caso em que deseja trocar a codificação. E para o caso de ter uma ',' entre "". 
+#Necessário aprimorar para o caso de dados separados por strings diferentes de ',' ou ';' e com números decimais com ','. E para o caso de ter uma ',' entre "". 
