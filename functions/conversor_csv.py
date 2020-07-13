@@ -10,8 +10,10 @@ ordecsep = original decimals separator
 spechar = specials characters
 orencoding = file's original encoding
 newencoding = new_file's encoding
-'''
-#In some cases, decimal numeric data may have the string ',' to indicate the decimal numbers. If the columns separator is also ',' it's impossible to differentiate the decimal indicator and the columns separator (actually it always happens when the indicator and the separator are the same string). Thus, if the original separator is not ',', the function'll always change the decimal indicator ',' for '.'.
+
+In some cases, decimal numeric data may have the string ',' to indicate the decimal numbers. If the columns separator is also ',' it's impossible to differentiate 
+the decimal indicator and the columns separator (actually it always happens when the indicator and the separator are the same string). Thus, if the original separator 
+is not ',', the function'll always change the decimal indicator ',' for '.'.'''
 
 def conversor_csv(file, new_file, orsep, newsep, ordecsep = '.', spechar = True, orencoding = 'utf-8', newencoding = 'utf-8'):
     
