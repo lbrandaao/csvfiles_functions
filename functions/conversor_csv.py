@@ -1,5 +1,18 @@
 import unicodedata
 
+'''
+Labels:
+file = file that will be changed
+new_file = file will be created
+orsep =  original column separator
+newsep = new column separator that you want
+ordecsep = original decimals separator
+spechar = specials characters
+orencoding = file's original encoding
+newencoding = new_file's encoding
+'''
+#In some cases, decimal numeric data may have the string ',' to indicate the decimal numbers. If the columns separator is also ',' it's impossible to differentiate the decimal indicator and the columns separator (actually it always happens when the indicator and the separator are the same string). Thus, if the original separator is not ',', the function'll always change the decimal indicator ',' for '.'.
+
 def conversor_csv(file, new_file, orsep, newsep, ordecsep = '.', spechar = True, orencoding = 'utf-8', newencoding = 'utf-8'):
     
     if orsep == ordecsep:
@@ -34,8 +47,3 @@ def conversor_csv(file, new_file, orsep, newsep, ordecsep = '.', spechar = True,
 
     file_write.close()
     file_read.close()
-
-
-#Em alguns casos, dados numéricos decimais podem possuir ',' para indicar os algarismos decimais. Caso o separador das colunas também seja ',' é impossível diferir o indicador de casas decimais e o separador de coluna (sempre que o indicador e o separador forem a mesma string isso ocorre). Portanto, caso o separador original não seja ',', a função sempre irá substituir o indicador de casas decimais ',' por '.'.
-
-#Necessário aprimorar para o caso de dados separados por strings diferentes de ',' ou ';' e com números decimais com ','. E para o caso de ter uma ',' entre "". 
