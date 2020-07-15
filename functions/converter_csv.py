@@ -24,25 +24,17 @@ def converter_csv(file, new_file, orsep, newsep, ordecsep = '.', spechar = True,
     file_write = open(new_file, 'w', encoding = newencoding)
     reading = file_read.read()
     
-    if spechar == True and ordecsep == '.':
+    if ordecsep == '.':
         new_content = reading.replace(orsep, newsep)
-        file_write.write(new_content)
-    
-    elif spechar == True:
-        new_content = reading.replace(ordecsep, '.').replace(orsep, newsep)
-        file_write.write(new_content)
-
-    elif ordecsep == '.':
-        new_content = reading.replace(orsep, newsep)
-        nfd = unicodedata.normalize('NFD', new_content)
-        equi_content = u"".join([c for c in nfd if not unicodedata.combining(c)])
-        file_write.write(equi_content)
-
     else:
         new_content = reading.replace(ordecsep, '.').replace(orsep, newsep)
+
+    if spechar == True:
+        file_write.write(new_content)
+    else:
         nfd = unicodedata.normalize('NFD', new_content)
         equi_content = u"".join([c for c in nfd if not unicodedata.combining(c)])
         file_write.write(equi_content)
-
+    
     file_write.close()
     file_read.close()
