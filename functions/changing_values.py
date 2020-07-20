@@ -19,9 +19,9 @@ def changing_values(file, new_file, perc, rows, columns, increase = True, sep = 
                 if index_column == 0:
                     attribute = line[:sep_list[index_column]]
                 elif index_column == fcolumn:
-                    attribute = line[sep_list[index_column - 1]:]
+                    attribute = line[sep_list[index_column - 1] + 1:]
                 else:
-                    attribute = line[sep_list[index_column - 1]:sep_list[index_column]]
+                    attribute = line[sep_list[index_column - 1] + 1:sep_list[index_column]]
                 attributes.append(attribute)
                 
             
@@ -35,13 +35,13 @@ def changing_values(file, new_file, perc, rows, columns, increase = True, sep = 
                 
                 else:
                     if column == fcolumn:
-                        new_line = attributes[column] + '\n'
+                        new_line += attributes[column]
                     else:
                         new_line += attributes[column] + ','
+        
         else:
             new_line = line
-        
-        newfile.write(new_line)
+            newfile.write(new_line)
         row += 1
 
     orfile.close()
