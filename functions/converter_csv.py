@@ -3,7 +3,7 @@ import unicodedata
 '''
 Labels:
 file = file that will be changed
-new_file = file will be created
+new_file = file that will be created
 orsep =  original column separator
 newsep = new column separator that you want
 ordecsep = original decimals separator
