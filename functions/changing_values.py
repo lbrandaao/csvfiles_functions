@@ -2,7 +2,7 @@ def changing_values(file, new_file, perc, rows, columns, increase = True, sep = 
     orfile = open(file, 'r', encoding = orencoding)
     newfile = open(new_file, 'w', encoding = newencoding)
     
-    row = 1
+    row = 0
     for line in orfile:
         if row in rows:
             sep_pos = 0
@@ -13,26 +13,35 @@ def changing_values(file, new_file, perc, rows, columns, increase = True, sep = 
                 if charac == sep:
                     sep_list.append(sep_pos)
                 sep_pos += 1
-            n_columns = len(sep_pos) + 1
-            for column in columns:
+            
+            index_columns = len(sep_list)
+            attributes = []
+            column = 0
+            while column <= index_columns:
+                if column == 0:
+                    attribute = line[:sep_list[column]]
+                elif column == index_columns:
+                    attribute = line[sep_list[column - 1]:]
+                else:
+                    attribute = line[sep_list[column - 1]:sep_list[column]]
+                attributes.append(attribute)
+                column += 1
+
+            
+
+            
+            
+            
+            
+            
+            '''for column in columns:
                 if column == 1:
                     new_value = int(line[:sep_list[0]]) * (1 + (perc/100))
                 elif column == n_columns:
                     new_value = int(line[sep_list[-1]:]) * (1 + (perc/100))
                 else:
                     new_value = int(line[sep_list[column-1] + 1:sep_list[column]])
-                new_values.append(new_value)
-            
-            count_column = 1
-            n = 0
-            for charac in line:
-                if count_column in columns:
-                    new_line += str(new_values[n])
-                    n += 1
-                else:
-                    new_line += charac
-                if charac == sep:
-                    count_column += 1
+                new_values.append(new_value)'''
 
 
                 
