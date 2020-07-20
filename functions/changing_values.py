@@ -7,7 +7,6 @@ def changing_values(file, new_file, perc, rows, columns, increase = True, sep = 
         if row in rows:
             sep_pos = 0
             sep_list = []
-            new_line = ''
             for charac in line:           #Indexação dos separadores.
                 if charac == sep:
                     sep_list.append(sep_pos)
@@ -24,20 +23,20 @@ def changing_values(file, new_file, perc, rows, columns, increase = True, sep = 
                     attribute = line[sep_list[index_column - 1] + 1:sep_list[index_column]]
                 attributes.append(attribute)
                 
-            
+            new_line = ''
             for column in range(0, fcolumn + 1):               #Atributos que quero modificar.
                 if column in columns:
                     new_value = int(attributes[column]) * (1 + (perc/100))
                     if column == fcolumn:
-                        new_line += str(new_value) + '\n'
+                        new_line += str(f'{new_value:.2f}') + '\n'
                     else:
-                        new_line += str(new_value) + ','
+                        new_line += str(f'{new_value:.2f}{sep}')
                 
                 else:
                     if column == fcolumn:
                         new_line += attributes[column]
                     else:
-                        new_line += attributes[column] + ','
+                        new_line += attributes[column] + sep
         
         else:
             new_line = line
