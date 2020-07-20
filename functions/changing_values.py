@@ -46,33 +46,3 @@ def changing_values(file, new_file, perc, rows, columns, increase = True, sep = 
 
     orfile.close()
     newfile.close()
-                
-                
-
-
-
-
-
-
-
-            
-
-            
-
-            
-            
-            
-            
-            
-            '''for column in columns:
-                if column == 1:
-                    new_value = int(line[:sep_list[0]]) * (1 + (perc/100))
-                elif column == n_columns:
-                    new_value = int(line[sep_list[-1]:]) * (1 + (perc/100))
-                else:
-                    new_value = int(line[sep_list[column-1] + 1:sep_list[column]])
-                new_values.append(new_value)'''
-
-
-                
-            
