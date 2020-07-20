@@ -9,12 +9,7 @@ sep = file's separator
 orencoding = file's original encoding
 newencoding = new_file's encoding
 '''
-#Need to add parameter to choose to increase or decrease values.
-
-
-
-
-def changing_values(file, new_file, perc, rows, columns, sep = ',', orencoding = 'utf-8', newencoding = 'utf-8'):
+def changing_values(file, new_file, perc, rows, columns, increase = True, sep = ',', orencoding = 'utf-8', newencoding = 'utf-8'):
     orfile = open(file, 'r', encoding = orencoding)
     newfile = open(new_file, 'w', encoding = newencoding)
     
@@ -42,12 +37,15 @@ def changing_values(file, new_file, perc, rows, columns, sep = ',', orencoding =
             new_line = ''
             for column in range(0, fcolumn + 1):               
                 if column in columns:
-                    new_value = int(attributes[column]) * (1 + (perc/100))
+                    if increase == True:
+                        new_value = int(attributes[column]) * (1 + (perc/100))
+                    else:
+                        new_value = int(attributes[column]) * (1 - (perc/100))
+                    
                     if column == fcolumn:
                         new_line += str(f'{new_value:.2f}') + '\n'
                     else:
                         new_line += str(f'{new_value:.2f}{sep}')
-                
                 else:
                     if column == fcolumn:
                         new_line += attributes[column]
