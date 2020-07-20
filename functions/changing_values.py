@@ -22,6 +22,17 @@ def changing_values(file, new_file, perc, rows, columns, increase = True, sep = 
                 else:
                     new_value = int(line[sep_list[column-1] + 1:sep_list[column]])
                 new_values.append(new_value)
+            
+            count_column = 1
+            n = 0
+            for charac in line:
+                if count_column in columns:
+                    new_line += str(new_values[n])
+                    n += 1
+                else:
+                    new_line += charac
+                if charac == sep:
+                    count_column += 1
 
 
                 
