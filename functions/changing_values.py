@@ -7,12 +7,22 @@ def changing_values(file, new_file, perc, rows, columns, increase = True, sep = 
         if row in rows:
             sep_pos = 0
             sep_list = []
+            new_line = ''
+            new_values = []
             for charac in line:
                 if charac == sep:
                     sep_list.append(sep_pos)
                 sep_pos += 1
-            new_line = ''
+            n_columns = len(sep_pos) + 1
             for column in columns:
                 if column == 1:
-                    new_value = int(line[:sep_pos[0]]) * (1 + (perc/100))
-                    new_line += str(new_value) + sep
+                    new_value = int(line[:sep_list[0]]) * (1 + (perc/100))
+                elif column == n_columns:
+                    new_value = int(line[sep_list[-1]:]) * (1 + (perc/100))
+                else:
+                    new_value = int(line[sep_list[column-1] + 1:sep_list[column]])
+                new_values.append(new_value)
+
+
+                
+            
