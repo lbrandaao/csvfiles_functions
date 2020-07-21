@@ -38,9 +38,9 @@ def changing_values(file, new_file, perc, rows, columns, increase = True, sep = 
             for column in range(0, fcolumn + 1):               
                 if column in columns:
                     if increase == True:
-                        new_value = int(attributes[column]) * (1 + (perc/100))
+                        new_value = float(attributes[column]) * (1 + (perc/100))
                     else:
-                        new_value = int(attributes[column]) * (1 - (perc/100))
+                        new_value = float(attributes[column]) * (1 - (perc/100))
                     
                     if column == fcolumn:
                         new_line += str(f'{new_value:.2f}') + '\n'
